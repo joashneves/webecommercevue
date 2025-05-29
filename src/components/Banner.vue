@@ -14,9 +14,10 @@ function toggleDarkMode() {
   <Toolbar>
     <template #start>
       <Button icon="pi pi-moon" class="mr-2" severity="secondary" @click="toggleDarkMode()" />
-        <Button icon="pi pi-plus" class="mr-2" severity="secondary" text/>
-        <Button icon="pi pi-print" class="mr-2" severity="secondary" text />
-        <Button icon="pi pi-upload" severity="secondary" text />
+        <Button icon="pi pi-home" label="Incio" class="mr-2" severity="secondary" text/>
+        <Button icon="pi pi-tags" label="Ofertas"  class="mr-2" severity="secondary" text />
+        <Button icon="pi pi-question" label="Sobre"  class="mr-2" severity="secondary" text />
+        <Button icon="pi  pi-users" label="Contato" severity="secondary" text />
     </template>
 
     <template #center>
@@ -28,6 +29,9 @@ function toggleDarkMode() {
         </IconField>
     </template>
 
-    <template #end> <SplitButton label="Save" :model="items"></SplitButton></template>
+    <template #end> 
+      <Button icon="pi pi-shopping-bag" class="mr-2" severity="secondary" text />
+        <Button icon="pi  pi-user"  severity="secondary" text />
+    </template>
 </Toolbar>
 </template>
