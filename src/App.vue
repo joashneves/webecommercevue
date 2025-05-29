@@ -2,11 +2,13 @@
 import { RouterLink, RouterView } from 'vue-router'
 import Banner from './components/Banner.vue'
 import Card from './components/Card.vue'
-const dadomokado = [ { titulo: 'dadomokado', descricao: 'descricao top', valor: 19, },
-  { titulo: 'titulo menos top', descricao: 'descricao menos top', valor: 129, },
-  { titulo: 'titulo 4', descricao: 'descricao mais top', valor: 129, }, 
-{ titulo: 'titulo 12  ', descricao: 'descricao menos ou mais top', valor: 912, },
-{ titulo: 'titulo 5', descricao: 'descricao mais amsod top', valor: 1229, }]
+import { obterProdutos } from './http'
+import { ref } from 'vue'
+
+
+// Ref reativo
+const produtos = ref(obterProdutos())
+
 const conteudo = {
   display: 'grid',
   gridTemplateColumns: 'repeat(4, 1fr)', // 4 colunas de largura igual
@@ -19,7 +21,8 @@ const conteudo = {
   <Banner />
   <div :style="conteudo">
     <Card
-      v-for="cards in dadomokado"
+      v-for="cards in produtos"
+      :key="cards.titulo"
       :titulo="cards.titulo"
       :descricao="cards.descricao"
       :valor="cards.valor"
