@@ -1,9 +1,7 @@
 <script setup>
 import Toolbar from 'primevue/toolbar';
 import Button from "primevue/button"
-import PrimeVue from 'primevue/config';
 import InputText from 'primevue/inputtext';
-import SplitButton from 'primevue/splitbutton';
 
 function toggleDarkMode() {
   document.documentElement.classList.toggle('my-app-dark')
