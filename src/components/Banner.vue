@@ -12,7 +12,7 @@ function toggleDarkMode() {
   <Toolbar>
     <template #start>
       <Button icon="pi pi-moon" class="mr-2" severity="secondary" @click="toggleDarkMode()" />
-        <Button icon="pi pi-home" label="Incio" class="mr-2" severity="secondary" text/>
+        <Button icon="pi pi-home" label="Incio" class="mr-2" severity="secondary"  text/>
         <Button icon="pi pi-tags" label="Ofertas"  class="mr-2" severity="secondary" text />
         <Button icon="pi pi-question" label="Sobre"  class="mr-2" severity="secondary" text />
         <Button icon="pi  pi-users" label="Contato" severity="secondary" text />
