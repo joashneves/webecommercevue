@@ -6,7 +6,5 @@ import Banner from './components/Banner.vue'
 
 <template>
   <Banner />
-  <RouterLink>
-    <RouterView />
-  </RouterLink>
+  <RouterView />
 </template>

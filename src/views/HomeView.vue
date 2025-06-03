@@ -13,6 +13,7 @@ const conteudo = {
   gap: '1rem', // espaço entre os cards
   justifyItems: 'center', // centraliza os itens dentro das células
 }
+
 </script>
 
 <template>
