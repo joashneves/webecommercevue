@@ -17,7 +17,7 @@ const router = createRouter({
       component: OfertaView,
     },
     {
-      path: '/about',
+      path: '/contato',
       name: 'about',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route

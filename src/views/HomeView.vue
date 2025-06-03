@@ -20,7 +20,8 @@ const conteudo = {
   <div :style="conteudo">
     <Card
       v-for="cards in produtos"
-      :key="cards.titulo"
+      :key="cards.id"
+      :id="cards.id"
       :titulo="cards.titulo"
       :descricao="cards.descricao"
       :valor="cards.valor"

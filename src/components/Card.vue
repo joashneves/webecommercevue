@@ -13,6 +13,7 @@ const props = defineProps({
 const router = useRouter()
 
 function inspecionarProduto() {
+    console.log(props)
   router.push(`/inspecionar/${props.id}`)
 }
 </script>
