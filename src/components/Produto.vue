@@ -57,7 +57,7 @@ const responsiveOptions = [
         :value="images"
         :responsiveOptions="responsiveOptions"
         :numVisible="5"
-        containerStyle="max-width: 640px"
+        containerStyle="max-width: 100%"
         >
         <template #item="{ item }">
           <img :src="item.itemImageSrc" :alt="item.alt" style="width: 640px; height: 360px" />
@@ -102,9 +102,12 @@ const responsiveOptions = [
 
 .foto {
   grid-area: foto;
+  align-self: center;
+  align-content: center;
 }
 
 .conteudo {
+  padding: 12px;
   grid-area: conteudo;
 }
 </style>
