@@ -1,5 +1,6 @@
 <script setup>
 import { obterProdutos } from '@/http'
+import Panel from 'primevue/panel'
 import Galleria from 'primevue/galleria'
 import { useRoute } from 'vue-router'
 
@@ -16,13 +17,17 @@ const images = [
     alt: 'Imagem 1',
   },
   {
-    itemImageSrc: 'https://64.media.tumblr.com/1bddeb627932f08d8aebac86d1ac498c/99396b7f87b9d926-c2/s500x750/a751abb4193fbe0debe74426ed2da68a782a5bdd.jpg',
-    thumbnailImageSrc: 'https://64.media.tumblr.com/1bddeb627932f08d8aebac86d1ac498c/99396b7f87b9d926-c2/s500x750/a751abb4193fbe0debe74426ed2da68a782a5bdd.jpg',
+    itemImageSrc:
+      'https://64.media.tumblr.com/1bddeb627932f08d8aebac86d1ac498c/99396b7f87b9d926-c2/s500x750/a751abb4193fbe0debe74426ed2da68a782a5bdd.jpg',
+    thumbnailImageSrc:
+      'https://64.media.tumblr.com/1bddeb627932f08d8aebac86d1ac498c/99396b7f87b9d926-c2/s500x750/a751abb4193fbe0debe74426ed2da68a782a5bdd.jpg',
     alt: 'Imagem 2',
   },
   {
-    itemImageSrc: 'https://64.media.tumblr.com/1bddeb627932f08d8aebac86d1ac498c/99396b7f87b9d926-c2/s500x750/a751abb4193fbe0debe74426ed2da68a782a5bdd.jpg',
-    thumbnailImageSrc: 'https://64.media.tumblr.com/1bddeb627932f08d8aebac86d1ac498c/99396b7f87b9d926-c2/s500x750/a751abb4193fbe0debe74426ed2da68a782a5bdd.jpg',
+    itemImageSrc:
+      'https://64.media.tumblr.com/1bddeb627932f08d8aebac86d1ac498c/99396b7f87b9d926-c2/s500x750/a751abb4193fbe0debe74426ed2da68a782a5bdd.jpg',
+    thumbnailImageSrc:
+      'https://64.media.tumblr.com/1bddeb627932f08d8aebac86d1ac498c/99396b7f87b9d926-c2/s500x750/a751abb4193fbe0debe74426ed2da68a782a5bdd.jpg',
     alt: 'Imagem 3',
   },
 ]
@@ -44,9 +49,29 @@ const responsiveOptions = [
 </script>
 
 <template>
-  <div class="product-wrapper">
-    <div class="info">
-      <h4>{{ produto.titulo }}</h4>
+  <Panel :header=produto.titulo>
+    <p class="m-0">
+    <div class="conteiner">
+      <div class="foto">
+        <Galleria
+        :value="images"
+        :responsiveOptions="responsiveOptions"
+        :numVisible="5"
+        containerStyle="max-width: 640px"
+        >
+        <template #item="{ item }">
+          <img :src="item.itemImageSrc" :alt="item.alt" style="width: 640px; height: 360px" />
+        </template>
+        <template #thumbnail="{ item }">
+          <img
+          :src="item.thumbnailImageSrc"
+          :alt="item.alt"
+          style="width: 240px; height: 120px"
+          />
+        </template>
+      </Galleria>
+    </div>
+    <div class="conteudo">
       <h6>Quantidade: {{ produto.descricao }}</h6>
       <h3>
         {{
@@ -55,74 +80,31 @@ const responsiveOptions = [
             currency: 'BRL',
           })
         }}
-      </h3>
-      <Galleria
-        :value="images"
-        :responsiveOptions="responsiveOptions"
-        :numVisible="5"
-        containerStyle="max-width: 640px"
-      >
-        <template #item="{ item }">
-          <img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%" />
-        </template>
-        <template #thumbnail="{ item }">
-          <img :src="item.thumbnailImageSrc" :alt="item.alt" />
-        </template>
-      </Galleria>
-    </div>
-  </div>
+          </h3>
+        </div>
+      </div>
+    </p>
+  </Panel>
 </template>
 
 <style scoped>
-.product-wrapper {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-  min-height: 200px;
-  border-bottom: 1px solid var(--surface-300);
-  padding-bottom: 20px;
-  margin-top: 20px;
-  overflow: hidden;
+.conteiner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'foto  conteudo'
+    'foto  conteudo'
+    '. .';
 }
 
-.img-wrapper {
-  max-width: 20%;
-  width: 20%;
-  max-height: 200px;
-  overflow: hidden;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.foto {
+  grid-area: foto;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  display: block;
-}
-
-.info {
-  width: 70%;
-
-  display: flex;
-  flex-direction: column;
-}
-
-h6 {
-  opacity: 0.6;
-}
-
-h3 {
-  margin-top: 30px;
-}
-
-@media (max-width: 1000px) {
-  .img-wrapper {
-    max-width: 70%;
-    width: 70%;
-  }
+.conteudo {
+  grid-area: conteudo;
 }
 </style>
