@@ -1,23 +1,14 @@
 <script setup>
 import Card from '@/components/Card.vue';
 import { obterProdutos } from '@/http';
-import { ref } from 'vue'
-
+import { ref } from 'vue';
 
 // Ref reativo
-const produtos = ref(obterProdutos())
-
-const conteudo = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)', // 4 colunas de largura igual
-  gap: '1rem', // espaço entre os cards
-  justifyItems: 'center', // centraliza os itens dentro das células
-}
-
+const produtos = ref(obterProdutos());
 </script>
 
 <template>
-  <div :style="conteudo">
+  <div class="grid-container">
     <Card
       v-for="cards in produtos"
       :key="cards.id"
@@ -28,3 +19,13 @@ const conteudo = {
     />
   </div>
 </template>
+
+<style scoped>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  justify-items: center;
+}
+</style>
