@@ -37,7 +37,7 @@ function toggleDarkMode() {
 
     <template #end> 
       <Button icon="pi pi-shopping-bag" class="mr-2" severity="secondary" text />
-        <Button icon="pi  pi-user"  severity="secondary" text />
+        <Button icon="pi  pi-user"  severity="secondary" @click="goTo('/login')" text />
     </template>
 </Toolbar>
 </template>

@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import OfertaView from '@/views/OfertaView.vue'
 import ProdutoView from '@/views/ProdutoView.vue'
 import AdmView from '@/views/AdmView.vue'
+import LoginView from '@/views/LoginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,12 @@ const router = createRouter({
     path: '/inspecionar/:id',
     name: 'inspecionar',
     component: ProdutoView,
+    props: true
+  },
+      {
+    path: '/login',
+    name: 'login',
+    component: LoginView,
     props: true
   },
       {

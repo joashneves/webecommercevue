@@ -50,7 +50,7 @@ const responsiveOptions = [
 
 <template>
   <Panel :header=produto.titulo>
-    <p class="m-0">
+    <div class="m-0">
     <div class="conteiner">
       <div class="foto">
         <Galleria
@@ -83,7 +83,7 @@ const responsiveOptions = [
           </h3>
         </div>
       </div>
-    </p>
+    </div>
   </Panel>
 </template>
 
